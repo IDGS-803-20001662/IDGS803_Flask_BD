@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="col-xs-6">
+    {% from "_macros.html" import render_field %}
+    <form action="/traduccion" method="post" novalidate>
+        {{form.csrf_token}}
+        <input type = "hidden" name = "csrf_token" value="{{csrf_token()}}">
+
+        <label for="" class="control-label">Iidioma al que traducir:</label> <br>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="rbnIdiomas" id="rbnIdiomasE" value="E">
+            <label class="form-check-label" for="rbnIdiomasE">
+            Español
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="rbnIdiomas" id="rbnIdiomasI" value="I">
+            <label class="form-check-label" for="rbnIdiomasI">
+            Inglés
+            </label>
+        </div>
+
+        {{render_field(form.palabraTraducir)}}
+        
+        <input type="submit" value="traducir">
+    </form>
+</div>
+<div class="col-xs-6"></div>
+
+{% endblock %}

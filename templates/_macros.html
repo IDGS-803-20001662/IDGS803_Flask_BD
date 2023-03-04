@@ -1,0 +1,28 @@
+{% macro render_input(name, placeholder, type="text") %}
+<div class="control-group">
+    <label for="{{name}}" class="control-label">{{placeholder}}</label>
+    <div class="controls">
+        <input type="{{type}}" name="{{name}}" placeholder="{{placeholder}}" value="">
+    </div>
+</div>
+{%endmacro%}
+
+{% macro render_field(field) %}
+<div class="control-group">
+    <div class="controls">
+        {{ field.label }}
+        <!-- **kwargs = Pasar una lista de parametros como un diccionario -->
+        <!-- | safe = Pasar una clase de bootstrao -->
+        {{ field(**kwargs) | safe }}
+    </div>
+</div>
+
+{%if field.errors%}
+<ul>
+    {%for error in field.errors%}
+        <li style="color: red;">{{error}}</li>
+    {%endfor%}
+</ul>
+{%endif%}
+
+{% endmacro %}

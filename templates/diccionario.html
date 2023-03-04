@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="col-xs-6">
+    {% from "_macros.html" import render_field %}
+    <form action="/traducir" method="post" novalidate>
+        {{form.csrf_token}}
+        <input type = "hidden" name = "csrf_token" value="{{csrf_token()}}">
+        {{render_field(form.palabraEspañol)}}
+        {{render_field(form.palabraIngles)}}
+        <input type="submit" value="Guardar">
+    </form>
+</div>
+<div class="col-xs-6"></div>
+
+{% endblock %}

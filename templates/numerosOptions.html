@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% from "_macros.html" import render_inputNum %}
+
+<form name="formNumerosOptions" action="/numerosresultado" method="post">
+    <div class="control-group">
+        <div class="controls">
+            {% for n in range(num) %}
+                {{render_inputNum(n+1)}}
+            {% endfor %}
+            <input type="hidden" name="txtNumeroO" value={{num}} readonly>
+
+            <button type="submit" class="btn btn-default btn-primary">
+                <i class="icon-check icon-white"></i> Realizar cálculos
+            </button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

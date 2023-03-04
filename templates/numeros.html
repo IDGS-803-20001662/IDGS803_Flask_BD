@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% from "_macros.html" import render_inputNum %}
+
+<form name="formNumeros" action="/numeros" method="post">
+    <div class="control-group">
+        <div class="controls">
+            {{render_inputNum("umero")}}
+
+            <button type="submit" class="btn btn-default btn-primary">
+                <i class="icon-check icon-white"></i> Agregar los números
+            </button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

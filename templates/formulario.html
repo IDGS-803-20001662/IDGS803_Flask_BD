@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% from "_macros.html" import render_input %}
+
+<form name="form1" method="post">
+    <div class="control-group">
+        <div class="controls">
+            <!-- SIN type, por default es texto-->
+            {{render_input("txtMatricula","Matricula")}}
+            {{render_input("txtNombre","Nombre")}}
+            {{render_input("txtEdad","Edad", type = "number")}}
+            {{render_input("txtEmail","Correo", type = "email")}}
+            {{render_input("txtPassword","Password", type = "password")}}
+
+            <button type="submit" class="btn btn-default btn-primary">
+                <i class="icon-book icon-white"></i> Calcular
+            </button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

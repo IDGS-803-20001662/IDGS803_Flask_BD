@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="col-xs-6">
+    <h1>LISTA ORIGINAL: {{lista_num}}</h1>
+    <h1>MAX: {{max}}</h1>
+    <h1>MIN: {{min}}</h1>
+    <h1>PROMEDIO: {{promedio}}</h1>
+    <h1>NÚMEROS REPETIDOS:</h1>
+    
+    {% for n in range(numR) %}
+        <h1>{{numerosRepetidos[n]}} -> {{numeroRepeticiones[n]}}</h1>
+    {% endfor %}
+    
+</div>
+
+{% endblock %}

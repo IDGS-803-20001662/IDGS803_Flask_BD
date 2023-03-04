@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container text-center">
+    <img src="../static/img/resistencias.png" alt="Imagen de resistencias" style="height: 300px;">
+</div>
+
+<div class="container text-center">
+    {% from "_macros.html" import render_field %}
+    <form action="" method="post" novalidate>
+        {{form.csrf_token}}
+        <input type = "hidden" name = "csrf_token" value="{{csrf_token()}}">
+        {{render_field(form.banda1)}}
+        {{render_field(form.banda2)}}
+        {{render_field(form.banda3)}}
+        {{render_field(form.tolerancia)}}
+        <input class="btn btn-primary" type="submit" value="Calcular valor">
+    </form>
+</div>
+<div class="col-xs-6"></div>
+
+{% endblock %}
+
+{% block content2 %}
+<div class="container text-center">
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Banda 1</th>
+            <th scope="col">Banda 2</th>
+            <th scope="col">Banda 3</th>
+            <th scope="col">Tolerancia</th>
+            <th scope="col">Valor en ohmios</th>
+            <th scope="col">Valor mínimo</th>
+            <th scope="col">Valor máximo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="{{colorb1}}">{{labelb1}}</td>
+            <td style="{{colorb2}}">{{labelb2}}</td>
+            <td style="{{colorb3}}">{{labelb3}}</td>
+            <td style="{{colortol}}">{{labeltol}}</td>
+            <td>{{vb123}}</td>
+            <td>{{vmin}}</td>
+            <td>{{vmax}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+{% endblock %}
