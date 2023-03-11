@@ -5,7 +5,7 @@
 
   <div class="container m-3">
    <div class="row">
-       <form name="sent" action="/modificar" id="form1" method="POST">
+       <form name="sent" action="/eliminar" id="form1" method="POST">
             <div class="control-group">
                 <div class="form-group col-xs-12 float-label-form-group controls">
                     {{render_field(form.id,class='form-control')}}
@@ -27,7 +27,7 @@
                </div>
            </div>
            <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
-           <input type="submit" id="modificar" class="btn btn-danger" name="modificar" value="Modificar"/>
+           <input type="submit" id="eliminar" class="btn btn-danger" name="eliminar" value="Eliminar"/>
            <a href="ABCompleto" class="btn btn-success">Cancelar</a>
        </form>
    </div>
